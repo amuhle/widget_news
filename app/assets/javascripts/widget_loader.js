@@ -5,10 +5,10 @@ var load_widget = (function(div_container, widget_options) {
     var domain = 'http://localhost:3000';
 
     /******** Load jQuery if not present *********/
-    if (window.jQuery == undefined || window.jQuery.fn.jquery != '1.4.2') {
+    if (window.jQuery == undefined) {
         var script_tag = document.createElement('script');
         script_tag.setAttribute("type","text/javascript");
-        script_tag.setAttribute("src", "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js");
+        script_tag.setAttribute("src", "http://code.jquery.com/jquery-latest.min.js");
         if (script_tag.readyState) {
             script_tag.onreadystatechange = function () { // For old versions of IE
                 if (this.readyState == 'complete' || this.readyState == 'loaded') {
@@ -37,12 +37,12 @@ var load_widget = (function(div_container, widget_options) {
 
     /******** Our main function ********/
     function main() {
-        jQuery(document).ready(function($) {
+        jQuery(document).ready(function(jQuery) {
 
             /******* Load HTML *******/
             var jsonp_url = domain + "/load_widget?options=" + widget_options +"&callback=?";
-            $.getJSON(jsonp_url, function(data) {
-                $(div_container).html(data.html);
+            jQuery.getJSON(jsonp_url, function(data) {
+                jQuery(div_container).html(data.html);
             });
         });
     }
