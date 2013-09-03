@@ -40,11 +40,10 @@ var load_widget = (function(div_container, widget_options) {
         jQuery(document).ready(function($) {
 
             /******* Load HTML *******/
-            var jsonp_url = domain + "/load_widget?callback=?";
+            var jsonp_url = domain + "/load_widget?options=" + widget_options +"&callback=?";
             $.getJSON(jsonp_url, function(data) {
                 $(div_container).html(data.html);
             });
         });
     }
-
 });
