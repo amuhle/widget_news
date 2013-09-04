@@ -1,49 +1,46 @@
-var load_widget = (function(div_container, widget_options) {
+var get_widget = (function (div_container, widget_options) {
 
-    // Localize jQuery variable
-    var jQuery;
     var domain = 'http://localhost:3000';
+    var jQueryURL = 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js';
 
-    /******** Load jQuery if not present *********/
-    if (window.jQuery == undefined) {
-        var script_tag = document.createElement('script');
-        script_tag.setAttribute("type","text/javascript");
-        script_tag.setAttribute("src", "http://code.jquery.com/jquery-latest.min.js");
-        if (script_tag.readyState) {
-            script_tag.onreadystatechange = function () { // For old versions of IE
-                if (this.readyState == 'complete' || this.readyState == 'loaded') {
-                    scriptLoadHandler();
-                }
-            };
+    function load_widget(url, callback) {
+
+        if (window.jQuery == undefined) {
+            var script = document.createElement("script")
+            script.type = "text/javascript";
+
+            if (script.readyState) { //IE Compatibility
+                script.onreadystatechange = function () {
+                    if (script.readyState == "loaded" || script.readyState == "complete") {
+                        script.onreadystatechange = null;
+                        callback();
+                    }
+                };
+            } else { //Others browsers
+                script.onload = function () {
+                    callback();
+                };
+            }
+
+            script.src = url;
+            // Try to find the head, otherwise default to the documentElement
+            (document.getElementsByTagName("head")[0] || document).appendChild(script);
         } else {
-            script_tag.onload = scriptLoadHandler;
+            callback();
         }
-        // Try to find the head, otherwise default to the documentElement
-        (document.getElementsByTagName("head")[0] || document).appendChild(script_tag);
-    } else {
-        // The jQuery version on the window is the one we want to use
-        jQuery = window.jQuery;
-        main();
     }
 
-    /******** Called once jQuery has loaded ******/
-    function scriptLoadHandler() {
-        // Restore $ and window.jQuery to their previous values and store the
-        // new jQuery in our local jQuery variable
-        jQuery = window.jQuery.noConflict(true);
-        // Call our main function
-        main();
-    }
-
-    /******** Our main function ********/
-    function main() {
+    function getWidgetJSON() {
+        //jQuery loaded
         jQuery(document).ready(function(jQuery) {
 
-            /******* Load HTML *******/
+            // Load widget HTML via JSONP
             var jsonp_url = domain + "/load_widget?options=" + widget_options +"&callback=?";
             jQuery.getJSON(jsonp_url, function(data) {
                 jQuery(div_container).html(data.html);
             });
         });
     }
+
+    load_widget(jQueryURL, getWidgetJSON);
 });
