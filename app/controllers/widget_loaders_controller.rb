@@ -1,11 +1,10 @@
 class WidgetLoadersController < ApplicationController
 
-  def load_widget
+  layout false
 
-    file = File.read(File.join('app', 'views', 'widget_loaders', 'index.html'))
-    html = file || '<h1>No hay HTML</h1>'
-    a = render js: params[:callback] + "(#{{ html: html }.to_json})"
-    puts a
+  def load_widget
+    html = render_to_string(:index) || '<h1>No hay HTML</h1>'
+    render js: params[:callback] + "(#{{ html: html }.to_json})"
   end
 
 end
