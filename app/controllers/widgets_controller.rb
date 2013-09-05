@@ -1,4 +1,4 @@
-class WidgetLoadersController < ApplicationController
+class WidgetsController < ApplicationController
 
   layout false
 

@@ -1,8 +1,8 @@
 WidgetNews::Application.routes.draw do
 
-  resource 'widget_loaders'
+  resource 'widgets'
 
-  get 'load_widget'  => 'widget_loaders#load_widget'
+  get 'load_widget'  => 'widgets#load_widget'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
