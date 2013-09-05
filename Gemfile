@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-# Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -20,6 +18,9 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+# Use sqlite3 as the database for Active Record
+#gem 'sqlite3'
 
 #To deploy on Heroku
 gem 'pg'
@@ -46,6 +47,11 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'capybara'
+end
+
+group :production do
+  gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
 end
 
 # Use ActiveModel has_secure_password
