@@ -1,14 +1,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Mighty Macs Widget</title>
-<% ActionController::Base.asset_host = 'http://localhost:3000/' %>
-<%= stylesheet_link_tag 'widgets' %>
-<%= javascript_include_tag '/assets/jquery', '/assets/jquery.tinyscrollbar', 'widgets'%>
+    <% ActionController::Base.asset_host = 'http://localhost:3000/' %>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Mighty Macs Widget</title>
+    <%= stylesheet_link_tag 'widgets', id: 'widgets_style', theme: 'widgets_style' %>
+    <script type="text/javascript" src="http://localhost:3000/assets/jquery.js"></script>
+    <script type="text/javascript" src="http://localhost:3000/assets/jquery.tinyscrollbar.js"></script>
+    <%= javascript_include_tag 'widgets'%>
 </head>
 
 <body>
+
+ <%= button_tag 'Change Style', id: 'btn_style', type: 'button'%>
 
 <div id="widgetContainer">
     <div id="menu">

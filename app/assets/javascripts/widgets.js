@@ -1,6 +1,19 @@
 var selectedButton;
 
+
 jQuery(document).ready(function() {
+
+    jQuery('#btn_style').click(function() {
+        if(jQuery('#widgets_style').attr('theme') == 'widgets_style'){
+            jQuery('#widgets_style').attr('href', 'http://localhost:3000/assets/widgets_alt.css');
+            jQuery('#widgets_style').attr('theme', 'widgets_style_alt');
+        }else{
+            jQuery('#widgets_style').attr('href', 'http://localhost:3000/assets/widgets.css');
+            jQuery('#widgets_style').attr('theme', 'widgets_style');
+        }
+    });
+
+
     selectedButton = jQuery('#videoClipsButton');
 
     jQuery('#videoClipsButton').click(function() {
