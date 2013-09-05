@@ -4,6 +4,7 @@ class WidgetsController < ApplicationController
 
   def load_widget
     html = render_to_string(:index) || '<h1>No hay HTML</h1>'
+    params[:callback] ||= ""
     render js: params[:callback] + "(#{{ html: html }.to_json})"
   end
 
