@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Widget Test Page</title>
+        <!--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+    </head>
+    <body>
+    	<h1>Widget Container Page</h1>
+        <div id="streamContainer"></div>
+    	
+    	<script type="text/javascript" src="http://localhost:3000/assets/widget_loader.js"></script>
+		<script>
+			var widgetUuid = "f190e520-f6f2-0130-440a-406c8f34b6f5"
+			var widget = new get_widget(document.getElementById("streamContainer"), widgetUuid);
+		</script>	
+    </body>
+</html>

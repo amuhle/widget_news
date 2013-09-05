@@ -14,3 +14,12 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore RubyMine files
+
+/.idea
+
+# Ignore Mac OS X files
+
+.DS_Store
+spec/.DS_Store
