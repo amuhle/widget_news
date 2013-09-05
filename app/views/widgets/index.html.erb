@@ -1,12 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <% ActionController::Base.asset_host = 'http://localhost:3000/' %>
+    <% ActionController::Base.asset_host = widgets_server_url %>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Mighty Macs Widget</title>
     <%= stylesheet_link_tag 'widgets', id: 'widgets_style', theme: 'widgets_style' %>
-    <script type="text/javascript" src="http://localhost:3000/assets/jquery.js"></script>
-    <script type="text/javascript" src="http://localhost:3000/assets/jquery.tinyscrollbar.js"></script>
+    <script type="text/javascript" src="<%= widgets_server_url + 'assets/jquery.js' %>"></script>
+    <script type="text/javascript" src="<%= widgets_server_url + 'assets/jquery.tinyscrollbar.js' %>"></script>
     <%= javascript_include_tag 'widgets'%>
 </head>
 
@@ -16,11 +16,11 @@
 
 <div id="widgetContainer">
     <div id="menu">
-        <div class="menuButton" id="videoClipsButton" style="margin-left:0px;"><img src="http://localhost:3000/assets/videoClipsButtonSelected.png" width="67" height="12" /></div>
-        <div class="menuButton" id="latestNewsButton" style="margin-left:31px;"><img src="http://localhost:3000/assets/latestNewsButton.png" width="68" height="12" /></div>
-        <div class="menuButton" id="signUpButton" style="margin-left:31px;"><img src="http://localhost:3000/assets/signUpButton.png" width="45" height="12" /></div>
-        <div class="menuButton" id="connectButton" style="margin-left:31px;"><img src="http://localhost:3000/assets/connectButton.png" width="57" height="12" /></div>
-        <div class="menuButton" id="aboutTheFilmButton" style="margin-left:31px;"><img src="http://localhost:3000/assets/aboutTheFilmButton.png" width="85" height="12" /></div>
+        <div class="menuButton" id="videoClipsButton" style="margin-left:0px;"><img src="<%= widgets_server_url + 'assets/videoClipsButtonSelected.png' %>" width="67" height="12" /></div>
+        <div class="menuButton" id="latestNewsButton" style="margin-left:31px;"><img src="<%= widgets_server_url + 'assets/latestNewsButton.png' %>" width="68" height="12" /></div>
+        <div class="menuButton" id="signUpButton" style="margin-left:31px;"><img src="<%= widgets_server_url + 'assets/signUpButton.png' %>" width="45" height="12" /></div>
+        <div class="menuButton" id="connectButton" style="margin-left:31px;"><img src="<%= widgets_server_url + 'assets/connectButton.png' %>" width="57" height="12" /></div>
+        <div class="menuButton" id="aboutTheFilmButton" style="margin-left:31px;"><img src="<%= widgets_server_url + 'assets/aboutTheFilmButton.png' %>" width="85" height="12" /></div>
     </div>
 
     <div class="tab" id="videoClipsTab">
@@ -61,8 +61,8 @@
     <div class="tab" id="connectTab" style="display:none;">
         <div class="tabContainer">
             <div style="width:200px;float:left;">
-                <div id="twitterButton" class="connectButton"><a href="http://twitter.com/MightyMacsMovie" target="_blank"><img src="http://localhost:3000/assets/twitterButton.png" width="156" height="44" /></a></div>
-                <div id="websiteButton" class="connectButton"><a href="http://themightymacs.com/" target="_blank"><img src="http://localhost:3000/assets/websiteButton.png" width="109" height="47" /></a></div>
+                <div id="twitterButton" class="connectButton"><a href="http://twitter.com/MightyMacsMovie" target="_blank"><img src="<%= widgets_server_url + 'assets/twitterButton.png' %>" width="156" height="44" /></a></div>
+                <div id="websiteButton" class="connectButton"><a href="http://themightymacs.com/" target="_blank"><img src="<%= widgets_server_url + 'assets/websiteButton.png' %>" width="109" height="47" /></a></div>
             </div>
             <div style="float:right;background-color:#FFF;">
                 <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fthemightymacs&amp;width=224&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=false&amp;header=false&amp;height=258" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:224px; height:234px;" allowTransparency="true"></iframe>
