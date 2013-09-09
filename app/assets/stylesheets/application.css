@@ -9,5 +9,11 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require bootstrap
+ *= require bootstrap-theme
+ *= require bootstrap_and_overrides
  */
+
+body {
+    background: url('background_pattern.png') repeat scroll 0% 0% transparent;
+}
