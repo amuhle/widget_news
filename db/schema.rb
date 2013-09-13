@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20130911154415) do
 
   create_table "roles", force: true do |t|
     t.string   "name"
+    t.string   "visible_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
