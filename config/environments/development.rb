@@ -28,4 +28,5 @@ WidgetNews::Application.configure do
   config.assets.debug = true
 
   config.widget_server_url = 'http://localhost:3000/'
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

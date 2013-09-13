@@ -23,6 +23,15 @@ en:
   layouts:
     application:
       title: Widget News
-
+      home: Home
+      about: About
+      contact: Contact
+      signin: Sign in
+      signout: Sign out
+      copyright: Copyright Vairix 2013
+      welcome: Welcome %{email}
   designers:
-    title: Widget News
+    title: Widget Creator
+    subtitle: Create your custom news widget, Widget News allow you to choose between multiple styles, themes and colors
+    signup: Sign up today
+    startnew: Start new widget

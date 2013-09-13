@@ -1,11 +1,30 @@
 WidgetNews::Application.routes.draw do
 
-  resource 'widgets'
-  resource 'designers'
+  resources :templates
 
+  # Users
+
+  devise_for :users, :controllers => { :registrations => 'users/registrations' }
+
+  # Designer
+
+  resource 'designers'
+  get 'designers/contact'
+  get 'designers/about'
+
+  # Widgets
+
+  resource 'widgets'
+  # Short widget load URL
   get 'load_widget'  => 'widgets#load_widget'
-  
+
+  # Root page
+
   root 'designers#index'
+
+  devise_scope :user do
+    get 'sign_in', to: 'devise/sessions#new'
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

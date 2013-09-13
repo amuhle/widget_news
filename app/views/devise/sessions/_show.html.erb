@@ -1,0 +1,6 @@
+<%= form_for(resource, as: resource_name, url: destroy_user_session_path, method: 'delete') do |f| %>
+    <div class="form-group">
+      <%= f.label :email, t('layouts.application.welcome', email: current_user.email), class: 'label label-inverse'%>
+    </div>
+    <%= f.submit t('layouts.application.signout'), class: 'btn btn-danger' %>
+<% end %>
