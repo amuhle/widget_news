@@ -1,2 +1,49 @@
-<h1>Designers#new</h1>
-<p>Find me in app/views/designers/new.html.erb</p>
+<!-- Main Area -->
+<div id="main_area" class="container">
+  <div class="row" id="slider-thumbs">
+    <!-- Bottom switcher of slider -->
+
+      <div class="col-xs-4 col-sm-4 col-md-offset-1 col-md-4 col-lg-offset-1 col-lg-4">
+        <a class="img-thumbnail" id="carousel-selector-0">
+          <img src="http://placehold.it/140x100&text=1" class="img-responsive"/>
+          <div style="text-align: center">Select Template</div>
+        </a>
+      </div>
+
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <a class="img-thumbnail" id="carousel-selector-1">
+          <img src="http://placehold.it/140x100&text=2" class="img-responsive"/>
+          <div style="text-align: center">Fill Content</div>
+        </a>
+      </div>
+
+      <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
+        <a class="img-thumbnail" id="carousel-selector-2">
+          <img src="http://placehold.it/140x100&text=3" class="img-responsive"/>
+          <div style="text-align: center">Get Your Widget</div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+  <hr>
+  <!-- Slider -->
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="slider">
+      <!-- Top part of the slider -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="carousel-bounding-box">
+          <div id="myCarousel" class="carousel slide">
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+              <div id="choose_layout" class="active item" data-slide-number="0"></div>
+              <div id="choose_content" class="item" data-slide-number="1"></div>
+              <div id="get_widget" class="item" data-slide-number="2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/Slider-->
+</div>

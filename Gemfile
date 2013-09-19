@@ -39,6 +39,9 @@ gem 'acts_as_relation', '~> 1.0'
 # Generates UUIDs
 gem 'uuidtools'
 
+# jQuery Datatables plugin
+gem 'jquery-datatables-rails', git: 'git://github.com/vairix-pvilas/jquery-datatables-rails.git'
+
 # Use paperclip for upload images
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 

@@ -11,6 +11,9 @@ WidgetNews::Application.routes.draw do
   resource 'designers'
   get 'designers/contact'
   get 'designers/about'
+  get 'designers/layout_choose'
+  get 'designers/content_choose'
+  get 'designers/get_widget'
 
   # Widgets
 

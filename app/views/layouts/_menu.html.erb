@@ -1,0 +1,27 @@
+<div class="navbar-collapse collapse">
+  <ul class="nav navbar-nav">
+    <li class="active"><%= link_to t('layouts.menu.home'), root_path %></a></li>
+    <li><%= link_to t('layouts.menu.about'), designers_about_path %></a></li>
+    <li><%= link_to t('layouts.menu.contact'), designers_contact_path %></a></li>
+    <% if current_user then %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li><%= link_to t('layouts.menu.template'), templates_path %></li>
+          </ul>
+        </li>
+    <% end %>
+  </ul>
+  <div class="navbar-form navbar-right">
+    <%= if current_user then
+          render 'devise/sessions/show'
+        else
+          render 'devise/sessions/new'
+        end %>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+
+$(document).ready ->
+  $("#tbl_templates").dataTable
+    sDom: "<'row'<'col-xs-6 col-sm-6 col-md-6 col-lg-6'f>r>t<'row'<'col-xs-6 col-sm-6 col-md-6 col-lg-6'i><'col-xs-6 col-sm-6 col-md-6 col-lg-6'p>>"
+    bPaginate: true
+    bLengthChange: false
+    bFilter: false
+    bSort: true
+    bInfo: true
+    bAutoWidth: true
+    bSortClasses: false
+    asStripClasses: []
+    oLanguage:
+      sProcessing: "<%= I18n.translate('templates.oLanguage.sProcessing') %>"
+      sLengthMenu: "<%= I18n.translate('templates.oLanguage.sLengthMenu') %>"
+      sZeroRecords: "<%= I18n.translate('templates.oLanguage.sZeroRecords') %>"
+      sEmptyTable: "<%= I18n.translate('templates.oLanguage.sEmptyTable') %>"
+      sInfo: "<%= I18n.translate('templates.oLanguage.sInfo') %>"
+      sInfoEmpty: "<%= I18n.translate('templates.oLanguage.sInfoEmpty') %>"
+      sInfoFiltered: "<%= I18n.translate('templates.oLanguage.sInfoFiltered') %>"
+      sInfoPostFix: "<%= I18n.translate('templates.oLanguage.sInfoPostFix') %>"
+      sSearch: "<%= I18n.translate('templates.oLanguage.sSearch') %>"
+      sUrl: "<%= I18n.translate('templates.oLanguage.sUrl') %>"
+      sInfoThousands: "<%= I18n.translate('templates.oLanguage.sInfoThousands') %>"
+      sLoadingRecords: "<%= I18n.translate('templates.oLanguage.sLoadingRecords') %>"
+      oPaginate:
+        sFirst: "<%= I18n.translate('templates.oLanguage.oPaginate.sFirst') %>"
+        sLast: "<%= I18n.translate('templates.oLanguage.oPaginate.sLast') %>"
+        sNext: "<%= I18n.translate('templates.oLanguage.oPaginate.sNext') %>"
+        sPrevious: "<%= I18n.translate('templates.oLanguage.oPaginate.sPrevious') %>"
+      oAria:
+        sSortAscending: "<%= I18n.translate('templates.oLanguage.oAria.sSortAscending') %>"
+        sSortDescending: "<%= I18n.translate('templates.oLanguage.oAria.sSortDescending') %>"
+
+  editor = ace.edit("content")
+  editor.setTheme "ace/theme/textmate"
+  editor.getSession().setMode "ace/mode/html"
+  editor.getSession().on "change", (e) ->
+    $("#template_content").val editor.getValue()
+  value = $("textarea#template_content").val().toString()
+  editor.getSession().setValue value
+  $("#template_content").hide()
+
+$.extend $.fn.dataTableExt.oStdClasses,
+    sWrapper: "dataTables_wrapper form-inline"
+    sFilter: "dataTables_filter dataTables_filter_customs"
+    sLength: "dataTables_length dataTables_length_customs"
+    sSortAsc: "sorting_asc sorting_asc_customs"

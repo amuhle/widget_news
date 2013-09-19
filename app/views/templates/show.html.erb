@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
+<fieldset disabled>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @template.name %>
-</p>
+  <div class="form-group">
+    <%= label_tag :name, t('templates.form.name') %><br>
+    <%= text_field_tag :name, @template.name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :description, t('templates.form.description') %><br>
+    <%= text_field_tag :description, @template.description, class: 'form-control', style: ''%>
+  </div>
+  <div class="form-group">
+    <%= label_tag :content, t('templates.form.content') %><br>
+    <%= text_area_tag :content, @template.content, class: 'form-control', rows: 6 %>
+  </div>
+</fieldset>
 
-<p>
-  <strong>Description:</strong>
-  <%= @template.description %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @template.content %>
-</p>
-
-<%= link_to 'Edit', edit_template_path(@template) %> |
-<%= link_to 'Back', templates_path %>
+<%= link_to t('templates.show.edit'), edit_template_path(@template) %> |
+<%= link_to t('templates.show.back'), templates_path %>

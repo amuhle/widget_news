@@ -1,14 +1,12 @@
-<h1>Listing templates</h1>
+<h1><%= t('templates.index.title') %></h1>
 
-<table>
+<table id="tbl_templates" class="table table-striped table-bordered table-responsive">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Content</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><%= t('templates.index.name') %></th>
+      <th><%= t('templates.index.description') %></th>
+      <th><%= t('templates.index.content') %></th>
+      <th><%= t('templates.index.actions') %></th>
     </tr>
   </thead>
 
@@ -18,9 +16,11 @@
         <td><%= template.name %></td>
         <td><%= template.description %></td>
         <td><%= template.content %></td>
-        <td><%= link_to 'Show', template %></td>
-        <td><%= link_to 'Edit', edit_template_path(template) %></td>
-        <td><%= link_to 'Destroy', template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to t('templates.index.show'), template, class: 'btn btn-small icon-file' %>
+          <%= link_to t('templates.index.edit'), edit_template_path(template), class: 'btn btn-small icon-edit' %>
+          <%= link_to t('templates.index.delete'), template, method: :delete, data: { confirm: I18n.translate('shared.confirm') }, class: 'btn btn-small icon-trash' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Template', new_template_path %>
+<%= link_to t('templates.index.new'), new_template_path %>

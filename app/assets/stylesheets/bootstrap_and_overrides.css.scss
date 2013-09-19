@@ -3,3 +3,31 @@
 .jumbotron {
   background-color: rgb(245, 245, 245);
 }
+
+.dataTables_filter_customs label input{
+  @extend .form-control;
+  @extend .input-sm;
+}
+
+.dataTables_filter_customs {
+  white-space: nowrap;
+}
+
+
+.dataTables_length_customs label select{
+  @extend .form-control;
+  @extend .input-sm;
+}
+
+.sorting_asc_customs{
+  background-color: #000000;
+}
+
+
+.sorting_desc_customs{
+
+}
+
+.sorting_customs{
+
+}

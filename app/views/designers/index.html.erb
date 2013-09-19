@@ -2,9 +2,9 @@
   <h1><%= t('designers.title') %></h1>
   <p class="lead"><%= t('designers.subtitle') %></p>
   <p><%= if current_user then
-            link_to t('designers.startnew'), new_designers_path, class: 'btn btn-lg btn-success'
+            link_to t('designers.startnew'), new_designers_path, class: 'btn btn-lg btn-primary'
          else
-            link_to t('designers.signup'), new_user_registration_path, class: 'btn btn-lg btn-success'
+            link_to t('designers.signup'), new_user_registration_path, class: 'btn btn-lg btn-primary'
          end
   %></p>
 </div>

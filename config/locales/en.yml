@@ -20,18 +20,72 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  helpers:
+    submit:
+      template:
+        create: "Create %{model}"
+        update: "Update %{model}"
+        delete: "Delete %{model}"
   layouts:
     application:
       title: Widget News
-      home: Home
-      about: About
-      contact: Contact
       signin: Sign in
       signout: Sign out
       copyright: Copyright Vairix 2013
       welcome: Welcome %{email}
+    menu:
+      home: Home
+      about: About
+      contact: Contact
+      template: Templates
   designers:
     title: Widget Creator
     subtitle: Create your custom news widget, Widget News allow you to choose between multiple styles, themes and colors
     signup: Sign up today
     startnew: Start new widget
+  templates:
+    index:
+      title: "Listing templates"
+      name: "Name"
+      description: "Description"
+      content: "Content"
+      actions: "Actions"
+      show: "Show"
+      edit: "Edit"
+      delete: "Delete"
+      new: "New Template"
+    form:
+      name: "Name"
+      description: "Description"
+      content: "Content"
+      error: "prohibited this template from being saved:"
+    new:
+      title: "New template"
+    edit:
+      title: "Editing template"
+    show:
+      edit: "Edit"
+      back: "Back"
+    oLanguage:
+          sProcessing:  "Processing..."
+          sLengthMenu:  "Show _MENU_ registers"
+          sZeroRecords: "Nothing to show"
+          sEmptyTable:  "No data available in table"
+          sInfo:  "Showing _START_ to _END_ of _TOTAL_ entries"
+          sInfoEmpty: "Showing 0 to 0 of 0 entries"
+          sInfoFiltered:   "(filtered from _MAX_ total entries)"
+          sInfoPostFix:    ""
+          sSearch:         "Search:"
+          sUrl:            ""
+          sInfoThousands:  ","
+          sLoadingRecords: "Loading..."
+          oPaginate:
+            sFirst: "First"
+            sLast:  "Last"
+            sNext:  "Next"
+            sPrevious:  "Previous"
+          oAria:
+            sSortAscending:   ": activate to sort column ascending"
+            sSortDescending:  ": activate to sort column descending"
+  shared:
+       confirm: "Are you sure?"
