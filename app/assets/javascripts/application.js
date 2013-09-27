@@ -14,10 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require dataTables/jquery.dataTables
+//= require fnAddTr
 //= require dataTables/jquery.dataTables.bootstrap
-//= require ace
-//= require designers
-//= require templates
 
 $(document).ready(function() {
     // Make all bootstrap alerts fade out in 3 seconds

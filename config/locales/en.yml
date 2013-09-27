@@ -43,6 +43,11 @@ en:
     subtitle: Create your custom news widget, Widget News allow you to choose between multiple styles, themes and colors
     signup: Sign up today
     startnew: Start new widget
+    content_choose:
+      number: Number
+      title: Title
+      type: Type
+      actions: Actions
   templates:
     index:
       title: "Listing templates"
@@ -66,26 +71,26 @@ en:
     show:
       edit: "Edit"
       back: "Back"
-    oLanguage:
-          sProcessing:  "Processing..."
-          sLengthMenu:  "Show _MENU_ registers"
-          sZeroRecords: "Nothing to show"
-          sEmptyTable:  "No data available in table"
-          sInfo:  "Showing _START_ to _END_ of _TOTAL_ entries"
-          sInfoEmpty: "Showing 0 to 0 of 0 entries"
-          sInfoFiltered:   "(filtered from _MAX_ total entries)"
-          sInfoPostFix:    ""
-          sSearch:         "Search:"
-          sUrl:            ""
-          sInfoThousands:  ","
-          sLoadingRecords: "Loading..."
-          oPaginate:
-            sFirst: "First"
-            sLast:  "Last"
-            sNext:  "Next"
-            sPrevious:  "Previous"
-          oAria:
-            sSortAscending:   ": activate to sort column ascending"
-            sSortDescending:  ": activate to sort column descending"
   shared:
-       confirm: "Are you sure?"
+    confirm: "Are you sure?"
+    oLanguage:
+      sProcessing:  "Processing..."
+      sLengthMenu:  "Show _MENU_ registers"
+      sZeroRecords: "Nothing to show"
+      sEmptyTable:  "No data available in table"
+      sInfo:  "Showing _START_ to _END_ of _TOTAL_ entries"
+      sInfoEmpty: "Showing 0 to 0 of 0 entries"
+      sInfoFiltered:   "(filtered from _MAX_ total entries)"
+      sInfoPostFix:    ""
+      sSearch:         "Search:"
+      sUrl:            ""
+      sInfoThousands:  ","
+      sLoadingRecords: "Loading..."
+      oPaginate:
+        sFirst: "First"
+        sLast:  "Last"
+        sNext:  "Next"
+        sPrevious:  "Previous"
+      oAria:
+        sSortAscending:   ": activate to sort column ascending"
+        sSortDescending:  ": activate to sort column descending"

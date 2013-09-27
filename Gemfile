@@ -39,6 +39,9 @@ gem 'acts_as_relation', '~> 1.0'
 # Generates UUIDs
 gem 'uuidtools'
 
+# ActiveRecord Session Store
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+
 # jQuery Datatables plugin
 gem 'jquery-datatables-rails', git: 'git://github.com/vairix-pvilas/jquery-datatables-rails.git'
 
@@ -57,6 +60,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'capybara'
+  gem 'debugger'
 end
 
 # Use ActiveModel has_secure_password

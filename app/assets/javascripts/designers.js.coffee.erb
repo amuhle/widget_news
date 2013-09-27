@@ -1,0 +1,117 @@
+# Load Carousel
+
+jQuery(document).ready ($) ->
+    $("#myCarousel").carousel interval: 0
+    load_templates()
+    $("[id^=carousel-selector-]").click ->
+        id_selector = $(this).attr("id")
+        id = id_selector.substr(id_selector.length - 1)
+        id = parseInt(id)
+        switch id
+            when 0
+                load_templates()
+            when 1
+                choose_content()
+            when 2
+                get_widget()
+
+addRowTblContent = ->
+    row = '<tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                </div>
+              </td>
+            </tr>'
+    $("#tbl_content").dataTable().fnAddTr $(row)[0]
+
+content_type = ->
+    $.ajax
+        url: "/designers/widget_content_type"
+        cache: false
+        success: (html) ->
+            $("#content_type").html html
+            $("#btn_add_row").fadeOut("slow")
+            $("#content_type").delay 600
+            $("#content_type").slideDown "slow"
+            $("#close_select_content_type").click ->
+                $("#content_type").slideUp("slow")
+                $("#btn_add_row").delay 600
+                $("#btn_add_row").fadeIn "slow"
+createTblContent = ->
+    $("#tbl_content").dataTable
+        sDom: "<'row'<'col-xs-6 col-sm-6 col-md-6 col-lg-6'f>r>t<'row'<'col-xs-6 col-sm-6 col-md-6 col-lg-6'i><'col-xs-6 col-sm-6 col-md-6 col-lg-6'p>>"
+        bPaginate: true
+        bLengthChange: false
+        bFilter: false
+        bSort: true
+        bInfo: true
+        bAutoWidth: true
+        bSortClasses: false
+        asStripClasses: []
+        oLanguage:
+            sProcessing: "<%= I18n.translate('shared.oLanguage.sProcessing') %>"
+            sLengthMenu: "<%= I18n.translate('shared.oLanguage.sLengthMenu') %>"
+            sZeroRecords: "<%= I18n.translate('shared.oLanguage.sZeroRecords') %>"
+            sEmptyTable: "<%= I18n.translate('shared.oLanguage.sEmptyTable') %>"
+            sInfo: "<%= I18n.translate('shared.oLanguage.sInfo') %>"
+            sInfoEmpty: "<%= I18n.translate('shared.oLanguage.sInfoEmpty') %>"
+            sInfoFiltered: "<%= I18n.translate('shared.oLanguage.sInfoFiltered') %>"
+            sInfoPostFix: "<%= I18n.translate('shared.oLanguage.sInfoPostFix') %>"
+            sSearch: "<%= I18n.translate('shared.oLanguage.sSearch') %>"
+            sUrl: "<%= I18n.translate('shared.oLanguage.sUrl') %>"
+            sInfoThousands: "<%= I18n.translate('shared.oLanguage.sInfoThousands') %>"
+            sLoadingRecords: "<%= I18n.translate('shared.oLanguage.sLoadingRecords') %>"
+            oPaginate:
+                sFirst: "<%= I18n.translate('shared.oLanguage.oPaginate.sFirst') %>"
+                sLast: "<%= I18n.translate('shared.oLanguage.oPaginate.sLast') %>"
+                sNext: "<%= I18n.translate('shared.oLanguage.oPaginate.sNext') %>"
+                sPrevious: "<%= I18n.translate('shared.oLanguage.oPaginate.sPrevious') %>"
+            oAria:
+                sSortAscending: "<%= I18n.translate('shared.oLanguage.oAria.sSortAscending') %>"
+                sSortDescending: "<%= I18n.translate('shared.oLanguage.oAria.sSortDescending') %>"
+
+#Handles the carousel thumbnails
+load_templates = ->
+    $.ajax
+        url: "/designers/layout_choose"
+        cache: false
+        success: (html) ->
+            $("#choose_layout").html html
+            $("#myCarousel").carousel 0
+
+            # Assign click event
+            $("[id^=template-]").click ->
+                id = $(this).attr("template")
+                id = parseInt(id)
+                choose_content id
+
+
+choose_content = (template_id) ->
+    $.ajax
+        url: "/designers/content_choose"
+        cache: false
+        data:
+            template_id: template_id
+
+        success: (html) ->
+            $("#choose_content").html html
+            $("#myCarousel").carousel 1
+            createTblContent()
+
+            #$("#btn_add_row").click ->
+            #    addRowTblContent()
+
+            $("#btn_add_row").click ->
+                content_type()
+
+get_widget = ->
+    $.ajax
+        url: "/designers/get_widget"
+        cache: false
+        success: (html) ->
+            $("#get_widget").html html
+            $("#myCarousel").carousel 2

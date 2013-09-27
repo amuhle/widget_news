@@ -1,7 +1,7 @@
 class Widget < ActiveRecord::Base
 
   # Has a template for building the widget
-  has_one :template
+  belongs_to :template
 
   # One widget contains a 'Header', some 'Pages' as 'Content' and a 'Footer'
   has_one :header

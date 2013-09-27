@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Content Choose</h2>
+  <div>
+    <a href="javascript:void(0);" id="btn_add_row">Click to add a new row</a>
+    <div id="content_type" style="display: none" class="panel panel-default"></div>
+  </div>
+
+  <table id="tbl_content" class="table table-striped table-bordered table-responsive">
+    <thead>
+    <tr>
+      <th class="col-xs-3 col-sm-3 col-md-4 col-lg-4"><%= t('designers.content_choose.number') %></th>
+      <th class="col-xs-3 col-sm-5 col-md-5 col-lg-6"><%= t('designers.content_choose.title') %></th>
+      <th class="col-xs-6 col-sm-4 col-md-3 col-lg-2"><%= t('designers.content_choose.type') %></th>
+      <th class="col-xs-6 col-sm-4 col-md-3 col-lg-2"><%= t('designers.content_choose.actions') %></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @pages.each do |template| %>
+        <tr>
+          <td><%= template.name %></td>
+          <td><%= template.name %></td>
+          <td><%= template.name %></td>
+          <td>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <%= link_to t('templates.index.edit'), edit_template_path(template), class: 'btn btn-primary btn-xs' %>
+              <%= link_to t('templates.index.delete'), template, method: :delete, data: {confirm: I18n.translate('shared.confirm')}, class: 'btn btn-primary btn-xs' %>
+            </div>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+  function addRowTblContent(){
+    $('#tbl_content').dataTable().fnAddData( ['','','',''], true ); }
+</script>
